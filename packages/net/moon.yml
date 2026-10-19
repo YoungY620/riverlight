@@ -1,0 +1,22 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: 'typescript'
+layer: 'library'
+dependsOn:
+  - 'engine'
+
+tasks:
+  build:
+    command: 'pnpm'
+    args: ['exec', 'tsc', '-p', 'tsconfig.json', '--noEmit']
+    deps:
+      - 'engine:build'
+    inputs:
+      - 'src/**/*'
+      - '*.json'
+  typecheck:
+    command: 'pnpm'
+    args: ['exec', 'tsc', '-p', 'tsconfig.json', '--noEmit']
+  test:
+    command: 'pnpm'
+    args: ['exec', 'vitest', 'run']

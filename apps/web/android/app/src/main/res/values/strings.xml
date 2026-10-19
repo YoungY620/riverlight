@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Riverlight</string>
+    <string name="title_activity_main">Riverlight</string>
+    <string name="package_name">dev.riverlight.poker</string>
+    <string name="custom_url_scheme">dev.riverlight.poker</string>
+</resources>

@@ -1,0 +1,24 @@
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+// Base UI has no Label primitive: native <label>. select-none replaces the
+// old primitive's behavior of preventing text selection on double click.
+
+const Label = React.forwardRef<
+  HTMLLabelElement,
+  React.ComponentPropsWithoutRef<"label">
+>(({ className, ...props }, ref) => (
+  <label
+    ref={ref}
+    className={cn(
+      "text-sm font-medium leading-none select-none text-foreground",
+      "peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+      className
+    )}
+    {...props}
+  />
+))
+Label.displayName = "Label"
+
+export { Label }

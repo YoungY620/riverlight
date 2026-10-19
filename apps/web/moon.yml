@@ -1,0 +1,50 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+language: 'typescript'
+layer: 'application'
+dependsOn:
+  - 'engine'
+  - 'net'
+
+tasks:
+  dev:
+    command: 'pnpm'
+    args: ['exec', 'vite', '--host', '0.0.0.0']
+    options:
+      persistent: true
+      cache: false
+  build:
+    command: 'pnpm'
+    args: ['exec', 'vite', 'build']
+    deps:
+      - 'engine:build'
+      - 'net:build'
+    inputs:
+      - 'src/**/*'
+      - 'index.html'
+      - 'public/**/*'
+      - '*.json'
+      - '*.ts'
+    outputs:
+      - 'dist'
+  typecheck:
+    command: 'pnpm'
+    args: ['exec', 'tsc', '-p', 'tsconfig.json', '--noEmit']
+    deps:
+      - 'engine:build'
+      - 'net:build'
+  test:
+    command: 'pnpm'
+    args: ['exec', 'vitest', 'run']
+  lint:
+    command: 'pnpm'
+    args: ['exec', 'eslint', 'src', '--max-warnings=0']
+    options:
+      cache: false
+  sync:
+    command: 'pnpm'
+    args: ['exec', 'cap', 'sync']
+    deps:
+      - '~:build'
+    options:
+      cache: false

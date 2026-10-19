@@ -1,0 +1,660 @@
+jacquard 20
+tempo 116
+meter 4 4
+fx rsize=0.72 rtone=0.42 rspread=1 dbeats=0.5 dfb=0.28 dtone=0.42 dspread=0.55
+limiter ceiling=-7 attack=0.004 release=0.08
+mutes muted=00000000 soloed=00000000
+scale notes=101011010101
+patch 1 transpose=0 level=-14 pan=-0.12 uni=0.18 gate=0.92 mratio=2 index=1.1 fb=0 md=0.68 ca=0.025 cr=0.38 ps=0 pd=0.2 rsend=0.42 dsend=0.18
+patch 2 transpose=0 level=-20 pan=0.12 uni=0.3 gate=1 mratio=1 index=0.65 fb=0 md=0.82 ca=0.35 cr=0.85 ps=0 pd=0.2 rsend=0.58 dsend=0.06
+patch 3 transpose=0 level=-14 pan=0 uni=0 gate=0.94 mratio=1 index=1.25 fb=0 md=0.72 ca=0.008 cr=0.34 ps=0 pd=0.2 rsend=0.12 dsend=0
+patch 4 transpose=0 level=-19 pan=0.16 uni=0.12 gate=0.76 mratio=2 index=1.35 fb=0 md=0.55 ca=0.004 cr=0.26 ps=0 pd=0.2 rsend=0.38 dsend=0.22
+patch 5 transpose=0 level=-22 pan=-0.16 uni=0 gate=1 mratio=3.5 index=1.7 fb=0 md=0.62 ca=0.003 cr=0.55 ps=0 pd=0.2 rsend=0.55 dsend=0.36
+patch 6 transpose=0 level=-2 pan=0 uni=0 gate=1 mratio=3 index=1 fb=0 md=0.5 ca=0.005 cr=0.1 ps=0 pd=0.2 rsend=0 dsend=0
+patch 7 transpose=0 level=-2 pan=0 uni=0 gate=1 mratio=3 index=1 fb=0 md=0.5 ca=0.005 cr=0.1 ps=0 pd=0.2 rsend=0 dsend=0
+patch 8 transpose=0 level=-2 pan=0 uni=0 gate=1 mratio=3 index=1 fb=0 md=0.5 ca=0.005 cr=0.1 ps=0 pd=0.2 rsend=0 dsend=0
+lane 11 8 CHAN:1 div=16 on=1
+  step D5/2
+  step
+  step F5/2
+  step
+  step A5/2
+  step
+  step G5/2
+  step
+  step F5/2
+  step
+  step E5/2
+  step
+  step D5/2
+  step
+  step A4/6
+  step
+  step C5/2
+  step
+  step E5/2
+  step
+  step G5/2
+  step
+  step F5/2
+  step
+  step E5/2
+  step
+  step D5/2
+  step
+  step C5/2
+  step
+  step G4/6
+  step
+  step A#4/2
+  step
+  step D5/2
+  step
+  step F5/2
+  step
+  step E5/2
+  step
+  step D5/2
+  step
+  step C5/2
+  step
+  step A4/2
+  step
+  step F4/6
+  step
+  step A4/2
+  step
+  step C5/2
+  step
+  step E5/2
+  step
+  step D5/2
+  step
+  step C5/2
+  step
+  step A#4/2
+  step
+  step A4/2
+  step
+  step E4/6
+  step
+  step D5/2
+  step
+  step F5/2
+  step
+  step A5/2
+  step
+  step C6/2
+  step
+  step A#5/2
+  step
+  step A5/2
+  step
+  step G5/2
+  step
+  step F5/6
+  step
+  step E5/2
+  step
+  step G5/2
+  step
+  step A#5/2
+  step
+  step A5/2
+  step
+  step G5/2
+  step
+  step F5/2
+  step
+  step E5/2
+  step
+  step D5/6
+  step
+  step C5/2
+  step
+  step E5/2
+  step
+  step G5/2
+  step
+  step F5/2
+  step
+  step E5/2
+  step
+  step D5/2
+  step
+  step C5/2
+  step
+  step A#4/6
+  step
+  step A4/2
+  step
+  step D5/2
+  step
+  step C5/2
+  step
+  step A4/2
+  step
+  step G4/2
+  step
+  step F4/2
+  step
+  step E4/2
+  step
+  step D4/10
+  step
+lane 11 16 CHAN:2 div=16 on=1
+  step D3/16 F3/16 A3/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A#2/16 D3/16 F3/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step F3/16 A3/16 C4/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step C3/16 E3/16 G3/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step D3/16 F3/16 A3/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A#2/16 D3/16 F3/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A#2/16 D3/16 G3/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A2/16 C#3/16 E3/16
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+lane 11 24 CHAN:3 div=16 on=1
+  step D2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step D2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A#1/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A#1/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step F2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step F2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step C2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step C2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step D2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step D2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A#1/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A#1/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step G2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step G2/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A1/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A1/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+lane 11 32 CHAN:4 div=16 on=1
+  step D3/2
+  step
+  step F3/2
+  step
+  step A3/2
+  step
+  step F3/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step A3/2
+  step
+  step F3/2
+  step
+  step A#2/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step D3/2
+  step
+  step A#2/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step A3/2
+  step
+  step C4/2
+  step
+  step A3/2
+  step
+  step F3/2
+  step
+  step A3/2
+  step
+  step C4/2
+  step
+  step A3/2
+  step
+  step C3/2
+  step
+  step E3/2
+  step
+  step G3/2
+  step
+  step E3/2
+  step
+  step C3/2
+  step
+  step E3/2
+  step
+  step G3/2
+  step
+  step E3/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step A3/2
+  step
+  step F3/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step A3/2
+  step
+  step F3/2
+  step
+  step A#2/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step D3/2
+  step
+  step A#2/2
+  step
+  step D3/2
+  step
+  step F3/2
+  step
+  step D3/2
+  step
+  step A#2/2
+  step
+  step D3/2
+  step
+  step G3/2
+  step
+  step D3/2
+  step
+  step A#2/2
+  step
+  step D3/2
+  step
+  step G3/2
+  step
+  step D3/2
+  step
+  step A2/2
+  step
+  step C#3/2
+  step
+  step E3/2
+  step
+  step C#3/2
+  step
+  step A2/2
+  step
+  step C#3/2
+  step
+  step E3/2
+  step
+  step C#3/2
+  step
+lane 11 40 CHAN:5 div=16 on=1
+  step A6/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step A6/8
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step
+  step

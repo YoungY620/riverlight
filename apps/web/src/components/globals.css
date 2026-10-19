@@ -1,0 +1,235 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * TV Style — inspired by classic split-flap airport/train terminal boards
+ * (see: magnum6actual/flipoff). The aesthetic is a retro mechanical display:
+ * dark deep canvas, near-black tile surfaces with a thin horizontal seam,
+ * bright Helvetica characters, and vivid "scramble" accent colors (amber,
+ * cyan, magenta, red) borrowed from the flipoff scramble palette.
+ *
+ * Principles:
+ *  - Flat dark surfaces (no heavy shadows) — tiles are recessed, not raised
+ *  - Tiny 0.1875rem radius — mirrors the real flip-tile's near-square geometry
+ *  - Amber primary (#FFCC00) — the strongest hue in the scramble set
+ *  - Inset top-edge "seam" highlights via box-shadow tokens
+ *  - Uppercase, bold, letter-spaced display text for headings
+ */
+
+:root {
+  /* ─── Surfaces ─── */
+  --background: oklch(0.14 0 0);              /* Deep canvas — the "off" screen */
+  --foreground: oklch(0.985 0 0);             /* Pure white tile text */
+
+  --card: oklch(0.2 0 0);                     /* Tile face ~#222 — raised over canvas */
+  --card-foreground: oklch(0.985 0 0);
+
+  --popover: oklch(0.22 0 0);                 /* Floating surfaces */
+  --popover-foreground: oklch(0.985 0 0);
+
+  /* ─── Primary: amber #FFCC00 — the dominant scramble hue ─── */
+  --primary: oklch(0.87 0.17 95);
+  --primary-foreground: oklch(0.14 0 0);
+
+  --secondary: oklch(0.24 0 0);               /* Slightly raised tile */
+  --secondary-foreground: oklch(0.985 0 0);
+
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.64 0 0);
+
+  --accent: oklch(0.26 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+
+  --destructive: oklch(0.62 0.25 25);          /* #FF2D00 scramble red */
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --border: oklch(1 0 0 / 0.08);               /* Subtle white 8% — tile gap */
+  --input: oklch(0.17 0 0);                    /* Recessed input well */
+  --ring: oklch(0.87 0.17 95);                 /* Amber ring matches primary */
+  --radius: 0.1875rem;                          /* 0.1875rem — tile radius from flipoff */
+
+  /* ─── Flipboard scramble palette (accent hues for charts/badges) ─── */
+  --tv-cyan: oklch(0.78 0.16 220);             /* #00AAFF */
+  --tv-teal: oklch(0.88 0.15 175);             /* #00FFCC */
+  --tv-magenta: oklch(0.57 0.27 305);           /* #AA00FF */
+  --tv-red: oklch(0.62 0.25 25);                /* #FF2D00 */
+  --tv-amber: oklch(0.87 0.17 95);              /* #FFCC00 */
+  --tv-green: oklch(0.86 0.24 145);             /* #00FF7F — accent bar */
+
+  /*
+   * ─── Shadow scale ───
+   * Flipoff boards are flat-dark; we avoid bloom/ambient shadows and instead
+   * emphasise the inset mechanical "seam" that runs across every tile.
+   * Shadows below use a thin contact line + a subtle inset top-edge highlight
+   * (light from above is implied by the bright foreground on dark surfaces).
+   */
+  --shadow-xs:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.02),
+    0 0.0625rem 0.0625rem rgba(0, 0, 0, 0.5);
+
+  --shadow-sm:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.03),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.5);
+
+  --shadow-md:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.04),
+    0 0.125rem 0.25rem rgba(0, 0, 0, 0.55);
+
+  --shadow-lg:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.05),
+    0 0.25rem 0.5rem rgba(0, 0, 0, 0.6);
+
+  --shadow-xl:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.06),
+    0 0.5rem 1rem rgba(0, 0, 0, 0.65);
+
+  --shadow-inset:
+    inset 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.55),
+    inset 0 -0.0625rem 0 rgba(255, 255, 255, 0.02);
+
+  /* Amber-glow variant — primary button bloom, borrowed from flipoff's accent bar */
+  --shadow-primary:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.35),
+    0 0 0 0.0625rem rgba(255, 204, 0, 0.28),
+    0 0.125rem 0.25rem rgba(0, 0, 0, 0.55),
+    0 0.25rem 0.875rem rgba(255, 204, 0, 0.22);
+
+  /* Button-specific shadows (pressed vs resting) */
+  --shadow-button:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.06),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.55);
+
+  --shadow-button-hover:
+    inset 0 0.0625rem 0 rgba(255, 255, 255, 0.08),
+    0 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+
+  /* ─── Chart palette: tonal ramp of the DS primary (one hue, five shades) ─── */
+  --chart-1: var(--primary);
+  --chart-2: oklch(from var(--primary) calc(l - 0.09) calc(c * 0.92) h);
+  --chart-3: oklch(from var(--primary) calc(l - 0.18) calc(c * 0.84) h);
+  --chart-4: oklch(from var(--primary) calc(l - 0.27) calc(c * 0.76) h);
+  --chart-5: oklch(from var(--primary) calc(l - 0.36) calc(c * 0.68) h);
+
+  /* --- Motion (crisp profile) ---
+     Bare transition-* and ease-* classes read these; durations are
+     duration-fast, duration-base and duration-slow once installed. */
+  --transition-duration-fast: 120ms;
+  --transition-duration-base: 160ms;
+  --transition-duration-slow: 220ms;
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --default-transition-duration: var(--transition-duration-fast);
+  --default-transition-timing-function: var(--ease-out);
+
+  /* AI parts: the label that marks what a model wrote. */
+  --ai-label: var(--muted);
+  --ai-label-foreground: var(--foreground);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.0625rem);
+  --radius-xl: calc(var(--radius) + 0.1875rem);
+
+  --shadow-s: var(--shadow-sm);
+  --shadow-m: var(--shadow-md);
+  --shadow-l: var(--shadow-lg);
+  --shadow-inset: var(--shadow-inset);
+  --shadow-button: var(--shadow-button);
+  --shadow-button-hover: var(--shadow-button-hover);
+  --shadow-primary: var(--shadow-primary);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  /* stylelint-disable-next-line selector-no-vendor-prefix */
+  ::-moz-selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  /* Let textareas grow with their content instead of nested scrolling:
+     smoother writing, easier-to-scan forms. */
+  textarea {
+    /* Fallback for browsers without field-sizing (e.g. Firefox): keep the
+       textarea user-resizable so it can still be grown manually. */
+    resize: vertical;
+  }
+  @supports (field-sizing: content) {
+    textarea {
+      field-sizing: content;
+      max-height: 20lh;
+      overflow-y: auto;
+    }
+  }
+
+  /* Reserve the scrollbar gutter so the page keeps its width whenever the
+     scrollbar comes and goes: content loading in, moving between a short
+     and a tall page, or a scroll lock that just hides overflow. */
+  html {
+    scrollbar-gutter: stable;
+  }
+  @supports (scrollbar-gutter: stable) {
+    html body[data-scroll-locked] {
+      /* Radix's scroll lock re-adds the scrollbar width as body margin. The
+         stable gutter already reserves it, so without this the two stack and
+         opening a dialog shifts the page the other way. */
+      margin-right: 0 !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Show an invalid field on the field itself, not only in the message under
+     it. Declared after Tailwind's utilities, so it wins over the field's own
+     border and focus-ring classes. */
+  [aria-invalid="true"]:is(input, textarea, select, [role="combobox"], [role="checkbox"], [role="radio"]),
+  [role="radiogroup"][aria-invalid="true"] [role="radio"] {
+    border-color: var(--destructive);
+  }
+  [aria-invalid="true"]:is(input, textarea, select, [role="combobox"], [role="checkbox"], [role="radio"]):focus-visible,
+  [role="radiogroup"][aria-invalid="true"] [role="radio"]:focus-visible {
+    border-color: var(--destructive);
+    --tw-ring-color: color-mix(in oklch, var(--destructive) 35%, transparent);
+  }
+}
